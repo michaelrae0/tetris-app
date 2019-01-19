@@ -1,7 +1,7 @@
 {
-  "main.css": "/tetris-app/static/css/main.54d2d3b5.chunk.css",
-  "main.js": "/tetris-app/static/js/main.255b5f0b.chunk.js",
-  "main.js.map": "/tetris-app/static/js/main.255b5f0b.chunk.js.map",
+  "main.css": "/tetris-app/static/css/main.01d9c627.chunk.css",
+  "main.js": "/tetris-app/static/js/main.02558a73.chunk.js",
+  "main.js.map": "/tetris-app/static/js/main.02558a73.chunk.js.map",
   "static/js/1.0f208abc.chunk.js": "/tetris-app/static/js/1.0f208abc.chunk.js",
   "static/js/1.0f208abc.chunk.js.map": "/tetris-app/static/js/1.0f208abc.chunk.js.map",
   "runtime~main.js": "/tetris-app/static/js/runtime~main.bc3a97f5.js",
@@ -14,8 +14,8 @@
   "static/media/purple.JPG": "/tetris-app/static/media/purple.d708c9fd.JPG",
   "static/media/red.JPG": "/tetris-app/static/media/red.fdc32aa2.JPG",
   "static/media/yellow.JPG": "/tetris-app/static/media/yellow.9f5092ff.JPG",
-  "static/css/main.54d2d3b5.chunk.css.map": "/tetris-app/static/css/main.54d2d3b5.chunk.css.map",
+  "static/css/main.01d9c627.chunk.css.map": "/tetris-app/static/css/main.01d9c627.chunk.css.map",
   "index.html": "/tetris-app/index.html",
-  "precache-manifest.6662bfdba8496b8562a7ab6b6e1d6339.js": "/tetris-app/precache-manifest.6662bfdba8496b8562a7ab6b6e1d6339.js",
+  "precache-manifest.e6f6bdf1d8d49ae5449b8d38e78fca71.js": "/tetris-app/precache-manifest.e6f6bdf1d8d49ae5449b8d38e78fca71.js",
   "service-worker.js": "/tetris-app/service-worker.js"
 }

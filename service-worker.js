@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/tetris-app/precache-manifest.6662bfdba8496b8562a7ab6b6e1d6339.js"
+  "/tetris-app/precache-manifest.e6f6bdf1d8d49ae5449b8d38e78fca71.js"
 );
 
 workbox.clientsClaim();
