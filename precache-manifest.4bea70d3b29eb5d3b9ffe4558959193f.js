@@ -1,11 +1,11 @@
 self.__precacheManifest = [
   {
-    "revision": "02558a734893a7eff398",
+    "revision": "ffed4c32fc3af24995a1",
     "url": "/tetris-app/static/css/main.01d9c627.chunk.css"
   },
   {
-    "revision": "02558a734893a7eff398",
-    "url": "/tetris-app/static/js/main.02558a73.chunk.js"
+    "revision": "ffed4c32fc3af24995a1",
+    "url": "/tetris-app/static/js/main.ffed4c32.chunk.js"
   },
   {
     "revision": "0f208abc99b566416fbf",
@@ -48,7 +48,7 @@ self.__precacheManifest = [
     "url": "/tetris-app/static/media/yellow.9f5092ff.JPG"
   },
   {
-    "revision": "0bb1a0880b5c371cdf24b38faad57535",
+    "revision": "b596be3c25a0bc2c7808aa8fb5d8ea23",
     "url": "/tetris-app/index.html"
   }
 ];
