@@ -343,19 +343,24 @@ class App extends React.Component {
 
   // Check for lines
   deleteLine = (row, laid) => {
+    // Delete row
     for (let i = laid.length-1; i >= 0; i--) {
       if (laid[i].y === row) {
         laid.splice(i, 1);
       }
     }
+    // Move above blocks down
     for (let i = 0; i < laid.length; i++) {
       if (laid[i].y < row) {
-        laid[i].y +=1
+        laid[i].y = laid[i].y + 1
       }
     }
   }
   lineTest = () => {
-    let blocksInRow = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+    let blocksInRow = [];
+    blocksInRow.length = this.state.dims.yTiles + 1;
+    blocksInRow.fill(0)
+
     let laid = _.map(this.state.laidBlocks, _.clone); // creates deep copy instead of reference
 
     for (let i = 0; i < laid.length; i++) {
@@ -363,7 +368,7 @@ class App extends React.Component {
     }
 
     let rowsDeleted = 0;
-    for (let i = blocksInRow.length; i >= 0; i--) {
+    for (let i = 0; i < blocksInRow.length; i++) {
       if (blocksInRow[i] === this.state.dims.xTiles) {
         this.deleteLine(i, laid);
         
@@ -371,11 +376,12 @@ class App extends React.Component {
           lines: this.state.lines + 1,
           isUpdatable: true
         })
+        this.updateSpeed();
         rowsDeleted++
       }
     }
-    this.updateScore(rowsDeleted);
 
+    this.updateScore(rowsDeleted);
     this.setState({
       laidBlocks: laid
     })
@@ -462,7 +468,6 @@ class App extends React.Component {
     if (this.state.clock >= this.state.framesPerMove) {
       this.moveBlock();
       this.lineTest();
-      this.updateSpeed();
       this.testGameOver();
 
       this.setState({ clock: 0 });
@@ -482,14 +487,20 @@ class App extends React.Component {
 
   // Event handlers
   handleKeyDown = event => {
-    // Don't accept events if the game is over
+    // Restart game
+    if (event.key === "r") {
+      this.handleClick(event);
+    }
+
+    // Don't process events if the game is over
     if (this.state.isGameOver) return;
 
     // creates deep copy instead of reference
     var copy = _.map(this.state.blocks[0], _.clone); 
 
     // Pushes block down
-    if (event.key === "s" || event.keyCode === "38") {   
+    if (event.key === "s" || event.keyCode === "40") {   
+      event.preventDefault();
       // Skip to next frame
       this.setState({ 
         clock: this.state.framesPerMove
@@ -498,6 +509,7 @@ class App extends React.Component {
 
     // Pushes block left
     else if (event.key === "a" || event.keyCode === "37") {      
+      event.preventDefault();
       this.incrementLocation(copy, "x", -1);
       
       // Check for collisions before updating this.state.blocks
@@ -512,6 +524,7 @@ class App extends React.Component {
 
     // Pushes block right
     else if (event.key === "d" || event.keyCode === "39") {
+      event.preventDefault();
       this.incrementLocation(copy, "x", 1);     
       
       // Check for collisions before updating this.state.blocks
@@ -526,7 +539,8 @@ class App extends React.Component {
     }
 
     // Turns block
-    else if (event.key === "w" || event.keyCode === "40") {
+    else if (event.key === "w" || event.keyCode === "38") {
+      event.preventDefault();
       copy = this.turnBlock(copy);
 
       // Check for collisions before updating this.state.blocks
@@ -537,11 +551,6 @@ class App extends React.Component {
           blocks: [copy, this.state.blocks[1]]
         })
       }
-    }
-    
-    // Restart game
-    else if (event.key === "r") {
-      this.handleClick(event);
     }
   }
   handleClick = event => {
@@ -563,7 +572,7 @@ class App extends React.Component {
       isGameOver: false,
       isUpdatable: false
     })
-    event.preventDefault()
+    // event.preventDefault()
   }
 
   render() {
