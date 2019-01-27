@@ -4,7 +4,7 @@ import funcs from '../util/funcs.js';
 
 class Score extends React.Component {
   render () {
-    // let dims = this.props.dims;
+    // Dynamic fontsizes.
     let fontSize = funcs.calcFontSize(this.props.dims.scoreWidth/document.documentElement.clientWidth, 0.14)
 
     return (

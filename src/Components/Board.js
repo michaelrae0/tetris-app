@@ -9,11 +9,13 @@ class Viewport extends React.Component {
     let dims = this.props.dims;
     let borderWidth = 2;
 
-    // Create blocks that are currently moving
+    // Render moving block
     let movingBlock = (current.map( (value, i) => {
+      // Place texture over block
       let imageFile = `./${current[0].color}.JPG`;
       let image = images(imageFile);
 
+      // Render block
       return (
         <div
         key={this.props.current[i].id}
@@ -33,14 +35,16 @@ class Viewport extends React.Component {
       )}
       ))
 
-    // Render blocks that are already placed
+
+    // Render laid blocks
     let laid = this.props.laid
-    let arr = [];
-    
+    let arr = [];   
     for (let i = 0; i < laid.length; i++) {
+      // Place texture over block
       let imageFile = `./${laid[i].color}.JPG`;
       let image = images(imageFile);
 
+      // Render laid blocks
       arr.push(
         <div
           key={laid[i].id}
@@ -63,6 +67,7 @@ class Viewport extends React.Component {
     }
 
 
+    // Board dimensions
     let boardBorder = 5;
     let boardPercHeight = dims.boardContainerHeight - dims.boardHeight;
     let boardPercWidth = dims.boardContainerWidth - dims.boardWidth;

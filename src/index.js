@@ -33,9 +33,11 @@ class App extends React.Component {
 
   // Calculate dimensions at start and every frame
   calcDimensions = () => {
+    // Size of client's screen.
     let clientHeight = document.documentElement.clientHeight;
     let clientWidth = document.documentElement.clientWidth;
 
+    // Entire game. Includes board and score.
     let gameHeight =   800;
     let gameWidth =    700;
 
@@ -61,6 +63,7 @@ class App extends React.Component {
 
     let dR = boardHeight / 20;
 
+    // Returns an object containing all of the dimensions
     return {
       gameHeight,
       gameWidth,
@@ -82,66 +85,81 @@ class App extends React.Component {
 
   // Block spawning functions
   chooseRandomBlock = () => {
+    // Randomly pick a block type.
     let blockNum = Math.floor(Math.random() * 7);
     let colors = ["green", "red", "orange", "yellow", "purple", "cyan"]
     let block;
 
+    // Assign block characteristics.
     switch (blockNum) {
+      // -=_
       case 0:
         block = [
           {x: 5, y: 0, pos: "left", lay: "horizontal", type:"back-r"}, 
           {x: 6, y: 0, pos: "middle", lay: "horizontal", type:"back-r"}, 
           {x: 6, y: 1, pos: "bottom", lay: "horizontal", type:"back-r"}, 
           {x: 7, y: 1, pos: "bottomRight", lay: "horizontal", type:"back-r"}
-        ]; // -,_
+        ];
         break;
+      
+      // |
       case 1:
         block = [
           {x: 6, y: 0, pos: "pipe", lay: "vertical", type:"l"}, 
           {x: 6, y: 1, pos: "pipe", lay: "vertical", type:"l"}, 
           {x: 6, y: 2, pos: "pipe", lay: "vertical", type:"l"}, 
           {x: 6, y: 3, pos: "pipe", lay: "vertical", type:"l"}
-        ]; // |
+        ];
         break;
+      
+      // []
       case 2:
         block = [
           {x: 6, y: 0, pos: "square", type:"s"}, 
           {x: 7, y: 0, pos: "square", type:"s"}, 
           {x: 6, y: 1, pos: "square", type:"s"}, 
           {x: 7, y: 1, pos: "square", type:"s"}
-        ]; // []
+        ];
         break;
+      
+      // T
       case 3:
         block = [
           {x: 5, y: 1, pos: "bottomLeft", lay: "horizontal", type:"tp"}, 
           {x: 6, y: 1, pos: "bottom", lay: "horizontal", type:"tp"}, 
           {x: 7, y: 1, pos: "bottomRight", lay: "horizontal", type:"tp"}, 
           {x: 6, y: 0, pos: "middle", lay:"horizontal", type:"tp"}
-        ]; // T
+        ];
         break;
+      
+      // _,-
       case 4:
         block = [
           {x: 6, y: 0, pos: "middle", lay: "horizontal", type:"r"}, 
           {x: 7, y: 0, pos: "right", lay: "horizontal", type:"r"}, 
           {x: 5, y: 1, pos: "bottomLeft", lay: "horizontal", type:"r"}, 
           {x: 6, y: 1, pos: "bottom", lay: "horizontal", type:"r"}
-        ]; // _,-
+        ]; 
         break;
+      
+      // ,--
       case 5:
         block = [
           {x: 5, y: 1, pos: "bottomLeft", lay: "horizontal", type:"left"}, 
           {x: 6, y: 1, pos: "bottom", lay: "horizontal", type:"left"}, 
           {x: 7, y: 1, pos: "bottomRight", lay: "horizontal", type:"left"}, 
           {x: 5, y: 0, pos: "left", lay: "horizontal", type:"left"}
-        ]; // ,--
+        ];
         break;
+      
+      // --,
       case 6:
         block = [
           {x: 5, y: 1, pos: "bottomLeft", lay: "horizontal", type:"right"}, 
           {x: 6, y: 1, pos: "bottom", lay: "horizontal", type:"right"}, 
           {x: 7, y: 1, pos: "bottomRight", lay: "horizontal", type:"right"}, 
           {x: 7, y: 0, pos: "right", lay: "horizontal", type:"right"}
-        ]; // --,
+        ]; 
         break;
       default:
         break;
@@ -155,12 +173,13 @@ class App extends React.Component {
     return block;
   }
   spawnBlock = () => { 
-    // Push last curr to laidBlocks
+    // Push moving block to laidBlocks
     let laid = this.state.laidBlocks;
     for (let i = 0; i < this.state.blocks[0].length; i++) {
       laid.push(this.state.blocks[0][i])
     }
 
+    // Moves blocks[1] to blocks[0], and spawns a new blocks[1]
     this.setState({
       blocks: [this.state.blocks[1], this.chooseRandomBlock()]
     })
@@ -169,6 +188,7 @@ class App extends React.Component {
 
   // Collision tests. Return true or false
   laidCollision = block => {
+    // Checks each piece of the block for a collision with a laid block
     for (let i = 0; i < block.length; i++) {
       for (let j = 0; j < this.state.laidBlocks.length; j++) { 
         
@@ -180,18 +200,23 @@ class App extends React.Component {
 
       } 
     }
+    // False if no laid/moving collisions.
     return false;
   }
   floorCollision = block => {
+    // Checks each piece of the moving block for a collision with the floor.
     for (let i = 0; i < block.length; i++) {
+
+      // If floor/moving collision, return true
       if (block[i].y > this.state.dims.yTiles) {
         return true;
       }
     }
+    // If no collision, return false.
     return false;
   }
   wallCollision = (block, direction) => {
-    // Returns true if moving will take player off screen
+    // Returns true if moving will take a piece of the moving block off the screen
     for (let i = 0; i < block.length; i++) {
       
       if ((block[i].x >= this.state.dims.xTiles + 1 && (direction === "right" || direction === "turn")) || // right wall
@@ -209,6 +234,10 @@ class App extends React.Component {
 
 
   // Functions for turning blocks
+  // Visualizes each piece of the block as a positon on a 3x3 grid
+  // topLeft        top         topRight
+  // left           middle      right
+  // bottomLeft     bottom      bottomRight
   leftPiece = blockPiece => {
     if (blockPiece.lay === "horizontal") {
       blockPiece.x += 1; blockPiece.y -= 1;
@@ -302,11 +331,14 @@ class App extends React.Component {
     }
     return pipe
   }
-  turnBlock = block => { // Main turn functionblockPiece
+  turnBlock = block => { // Main turn function 
+    // Used for pipe blocks only.
     if (block[0].pos === "pipe") {
       this.turnPipe(block);
       return block;
     }
+
+    // Invokes different function depending on piece's location on 3x3 grid.
     for (let i = 0; i < block.length; i++) {     
       switch (block[i].pos) {
         case "top":
@@ -357,16 +389,19 @@ class App extends React.Component {
     }
   }
   lineTest = () => {
+    // Creates an array to store block count in each row
     let blocksInRow = [];
     blocksInRow.length = this.state.dims.yTiles + 1;
     blocksInRow.fill(0)
 
     let laid = _.map(this.state.laidBlocks, _.clone); // creates deep copy instead of reference
 
+    // Count number of blocks in a row
     for (let i = 0; i < laid.length; i++) {
       blocksInRow[laid[i].y] += 1;
     }
 
+    // Delete rows that are full. Starts at the top.
     let rowsDeleted = 0;
     for (let i = 0; i < blocksInRow.length; i++) {
       if (blocksInRow[i] === this.state.dims.xTiles) {
@@ -381,6 +416,7 @@ class App extends React.Component {
       }
     }
 
+    // Update state and score
     this.updateScore(rowsDeleted);
     this.setState({
       laidBlocks: laid
@@ -398,23 +434,28 @@ class App extends React.Component {
 
   // Speed changing functions
   updateSpeed = () => {
+    // Change speed of game every 3 row deletions. delta Speed changes depending on current speed.
     if (this.state.lines % 3 === 0 && this.state.isUpdatable === true) {
-      
+      // 18, 15
       if (this.state.framesPerMove >= 15) {
         this.setState({
           framesPerMove: this.state.framesPerMove - 3,
         })
       } 
-      else if (this.state.framesPerMove >= 8) {
+      // 12, 10
+      else if (this.state.framesPerMove >= 10) {
         this.setState({
           framesPerMove: this.state.framesPerMove - 2,
         })
       } 
+      // 8, 7, 6
       else if (this.state.framesPerMove >= 6) {
         this.setState({
           framesPerMove: this.state.framesPerMove - 1,         
         })
       }
+      // 5, 5, 5
+
       this.setState({
         level: this.state.level + 1,
         isUpdatable: false
@@ -423,6 +464,7 @@ class App extends React.Component {
     }
   }
   testGameOver = () => {
+    // End game if a block spawns on a laid block.
     if (this.laidCollision(this.state.blocks[1], "left")) {
       clearInterval(this.intervalId); // stops frames
       
@@ -436,15 +478,18 @@ class App extends React.Component {
 
   // Movement functions.
   incrementLocation = (block, coordStr, amount) => {
+    // Increments a moving block's coordinates by 1 or -1 in the x or y axis.
     for (let i = 0; i < block.length; i++) {
       block[i][coordStr] = block[i][coordStr] + amount; // adds 1 or -1 (or any number)
     }
   }
   moveBlock = () => {
+    // Executes every move. Forces moving block down by 1
     var copy = _.map(this.state.blocks[0], _.clone); // creates deep copy instead of reference
-    // stops after ground hit
+    
     this.incrementLocation(copy, "y", 1);
 
+    // Check if there's a collision
     if (!this.laidCollision(copy) &&
         !this.floorCollision(copy) ) {  
 
@@ -452,9 +497,12 @@ class App extends React.Component {
         blocks: [copy, this.state.blocks[1]]
       })
     } 
+    // If collision, spawn new block
     else {
       this.spawnBlock();
     }
+
+    // Reset clock to begin waiting for the next move.
     this.setState({
       clock: 0
     })
@@ -472,9 +520,8 @@ class App extends React.Component {
 
       this.setState({ clock: 0 });
     }
-    console.log(this.state.framesPerMove)
+
     // Runs every frame
-    
     this.setState({
       dims: this.calcDimensions(),
       clock: this.state.clock + 1
@@ -487,16 +534,18 @@ class App extends React.Component {
 
   // Event handlers
   handleKeyDown = event => {
-    // Restart game
+    // Restart game.
     if (event.key === "r") {
       this.handleClick(event);
     }
 
-    // Don't process events if the game is over
+
+    // Don't process the below events if the game is over.
     if (this.state.isGameOver) return;
 
     // creates deep copy instead of reference
     var copy = _.map(this.state.blocks[0], _.clone); 
+
 
     // Pushes block down
     if (event.key === "s" || event.keyCode === "40") {   
@@ -512,7 +561,8 @@ class App extends React.Component {
       event.preventDefault();
       this.incrementLocation(copy, "x", -1);
       
-      // Check for collisions before updating this.state.blocks
+      // Check for collisions before updating this.state.blocks.
+      // If collision, don't use the copy
       if (!this.wallCollision(copy, "left") &&
           !this.laidCollision(copy, "left") ) {
 
@@ -528,6 +578,7 @@ class App extends React.Component {
       this.incrementLocation(copy, "x", 1);     
       
       // Check for collisions before updating this.state.blocks
+      // If collision, don't use the copy
       if (!this.wallCollision(copy, "right") &&
           !this.laidCollision(copy, "right") ) { 
         
@@ -544,6 +595,7 @@ class App extends React.Component {
       copy = this.turnBlock(copy);
 
       // Check for collisions before updating this.state.blocks
+      // If collision, don't use the copy
       if (!this.wallCollision(copy, "turn") &&
           !this.laidCollision(copy, "turn") ) {
         
@@ -554,9 +606,11 @@ class App extends React.Component {
     }
   }
   handleClick = event => {
+    // Clears initial interval and startsa new one to prevent overlap.
     clearInterval(this.intervalId); // stops frames
     this.intervalId = setInterval(this.nextFrame, 1000/this.frames);
 
+    // Reset to intial conditions
     this.setState({
       blocks: [this.chooseRandomBlock(), this.chooseRandomBlock()],
       laidBlocks: [],

@@ -9,11 +9,13 @@ class NextBlock extends React.Component {
     let borderWidth = 2;
 
     let nextBlock = (next.map( (value, i) => {
-      let imageFile = `./${next[0].color}.JPG`;
+      // Block textures
+      let imageFile = `./${next[0].color}.JPG`; // './red.JPG'
       let image = images(imageFile);
+
+      // Offset coordinates for the different types of blocks
       let offset_x = 0;
       let offset_y = 0;
-
       if (next[0].type === 'back-r'||
           next[0].type ==='tp'||
           next[0].type ==='r'||
@@ -50,7 +52,7 @@ class NextBlock extends React.Component {
       )}
       ))
 
-
+    // Dynamic fontsizes.
     let fontSize = funcs.calcFontSize(dims.scoreWidth/document.documentElement.clientWidth, 0.14)
 
     return (

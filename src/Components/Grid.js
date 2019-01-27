@@ -4,6 +4,7 @@ class Grid extends React.Component {
   render () {
     let dims = this.props.dims
     
+    // Render background grid
     let grid = [];
     for (let i = 0; i < dims.xTiles ; i++) {
       for (let j = 0; j < dims.yTiles + 1; j++) {
