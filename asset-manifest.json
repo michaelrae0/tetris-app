@@ -1,7 +1,7 @@
 {
   "main.css": "/tetris-app/static/css/main.01d9c627.chunk.css",
-  "main.js": "/tetris-app/static/js/main.ffed4c32.chunk.js",
-  "main.js.map": "/tetris-app/static/js/main.ffed4c32.chunk.js.map",
+  "main.js": "/tetris-app/static/js/main.c6bdafa9.chunk.js",
+  "main.js.map": "/tetris-app/static/js/main.c6bdafa9.chunk.js.map",
   "static/js/1.0f208abc.chunk.js": "/tetris-app/static/js/1.0f208abc.chunk.js",
   "static/js/1.0f208abc.chunk.js.map": "/tetris-app/static/js/1.0f208abc.chunk.js.map",
   "runtime~main.js": "/tetris-app/static/js/runtime~main.bc3a97f5.js",
@@ -16,6 +16,6 @@
   "static/media/yellow.JPG": "/tetris-app/static/media/yellow.9f5092ff.JPG",
   "static/css/main.01d9c627.chunk.css.map": "/tetris-app/static/css/main.01d9c627.chunk.css.map",
   "index.html": "/tetris-app/index.html",
-  "precache-manifest.4bea70d3b29eb5d3b9ffe4558959193f.js": "/tetris-app/precache-manifest.4bea70d3b29eb5d3b9ffe4558959193f.js",
+  "precache-manifest.9affaf53ad8e70647996d56d21c83b59.js": "/tetris-app/precache-manifest.9affaf53ad8e70647996d56d21c83b59.js",
   "service-worker.js": "/tetris-app/service-worker.js"
 }
