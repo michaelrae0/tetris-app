@@ -1,11 +1,11 @@
 self.__precacheManifest = [
   {
-    "revision": "c6bdafa91ad82e604501",
-    "url": "/tetris-app/static/css/main.01d9c627.chunk.css"
+    "revision": "34fbca913d87643b6433",
+    "url": "/tetris-app/static/css/main.ecd7826d.chunk.css"
   },
   {
-    "revision": "c6bdafa91ad82e604501",
-    "url": "/tetris-app/static/js/main.c6bdafa9.chunk.js"
+    "revision": "34fbca913d87643b6433",
+    "url": "/tetris-app/static/js/main.34fbca91.chunk.js"
   },
   {
     "revision": "0f208abc99b566416fbf",
@@ -18,6 +18,10 @@ self.__precacheManifest = [
   {
     "revision": "9e4a270b07efa2c1ebc873bd10ead15f",
     "url": "/tetris-app/static/media/matte2.9e4a270b.jpg"
+  },
+  {
+    "revision": "59d4cd808a8e30df3ad1d73c0f356419",
+    "url": "/tetris-app/static/media/CoverLetter_Wilson_Easton_Huffman.59d4cd80.pdf"
   },
   {
     "revision": "09de6e7c37cc3e331da48d4ffa13173e",
@@ -48,7 +52,7 @@ self.__precacheManifest = [
     "url": "/tetris-app/static/media/yellow.9f5092ff.JPG"
   },
   {
-    "revision": "0907801435500bbe5cc97631ed8dc14c",
+    "revision": "0cd0ac2de06ec5e7e481f4db5f60b885",
     "url": "/tetris-app/index.html"
   }
 ];

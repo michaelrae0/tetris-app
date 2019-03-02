@@ -1,12 +1,13 @@
 {
-  "main.css": "/tetris-app/static/css/main.01d9c627.chunk.css",
-  "main.js": "/tetris-app/static/js/main.c6bdafa9.chunk.js",
-  "main.js.map": "/tetris-app/static/js/main.c6bdafa9.chunk.js.map",
+  "main.css": "/tetris-app/static/css/main.ecd7826d.chunk.css",
+  "main.js": "/tetris-app/static/js/main.34fbca91.chunk.js",
+  "main.js.map": "/tetris-app/static/js/main.34fbca91.chunk.js.map",
   "static/js/1.0f208abc.chunk.js": "/tetris-app/static/js/1.0f208abc.chunk.js",
   "static/js/1.0f208abc.chunk.js.map": "/tetris-app/static/js/1.0f208abc.chunk.js.map",
   "runtime~main.js": "/tetris-app/static/js/runtime~main.bc3a97f5.js",
   "runtime~main.js.map": "/tetris-app/static/js/runtime~main.bc3a97f5.js.map",
   "static/media/matte2.jpg": "/tetris-app/static/media/matte2.9e4a270b.jpg",
+  "static/media/CoverLetter_Wilson_Easton_Huffman.pdf": "/tetris-app/static/media/CoverLetter_Wilson_Easton_Huffman.59d4cd80.pdf",
   "static/media/cyan.JPG": "/tetris-app/static/media/cyan.09de6e7c.JPG",
   "static/media/green.JPG": "/tetris-app/static/media/green.00a9b1eb.JPG",
   "static/media/matte.jpg": "/tetris-app/static/media/matte.bd3787cf.jpg",
@@ -14,8 +15,8 @@
   "static/media/purple.JPG": "/tetris-app/static/media/purple.d708c9fd.JPG",
   "static/media/red.JPG": "/tetris-app/static/media/red.fdc32aa2.JPG",
   "static/media/yellow.JPG": "/tetris-app/static/media/yellow.9f5092ff.JPG",
-  "static/css/main.01d9c627.chunk.css.map": "/tetris-app/static/css/main.01d9c627.chunk.css.map",
+  "static/css/main.ecd7826d.chunk.css.map": "/tetris-app/static/css/main.ecd7826d.chunk.css.map",
   "index.html": "/tetris-app/index.html",
-  "precache-manifest.9affaf53ad8e70647996d56d21c83b59.js": "/tetris-app/precache-manifest.9affaf53ad8e70647996d56d21c83b59.js",
+  "precache-manifest.cb53f4db1dcdde8b180ea31491ccb22f.js": "/tetris-app/precache-manifest.cb53f4db1dcdde8b180ea31491ccb22f.js",
   "service-worker.js": "/tetris-app/service-worker.js"
 }
