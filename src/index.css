@@ -38,7 +38,7 @@ body, #root {
 }
 .board {
   position: relative;
-  background-color: lightblue;
+  background-color: white;
   float: left;
   margin: auto;
   border: 5px ridge grey;
