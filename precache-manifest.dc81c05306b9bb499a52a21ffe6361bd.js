@@ -1,11 +1,11 @@
 self.__precacheManifest = [
   {
-    "revision": "34fbca913d87643b6433",
-    "url": "/tetris-app/static/css/main.ecd7826d.chunk.css"
+    "revision": "00a9b1ebc300950bd4fc21abdaf490ed",
+    "url": "/tetris-app/static/media/green.00a9b1eb.JPG"
   },
   {
-    "revision": "34fbca913d87643b6433",
-    "url": "/tetris-app/static/js/main.34fbca91.chunk.js"
+    "revision": "5c1df4e1673c36ebedcc",
+    "url": "/tetris-app/static/css/main.ecd7826d.chunk.css"
   },
   {
     "revision": "0f208abc99b566416fbf",
@@ -28,8 +28,8 @@ self.__precacheManifest = [
     "url": "/tetris-app/static/media/cyan.09de6e7c.JPG"
   },
   {
-    "revision": "00a9b1ebc300950bd4fc21abdaf490ed",
-    "url": "/tetris-app/static/media/green.00a9b1eb.JPG"
+    "revision": "5c1df4e1673c36ebedcc",
+    "url": "/tetris-app/static/js/main.5c1df4e1.chunk.js"
   },
   {
     "revision": "bd3787cf2d142fc623989284f124cf9b",
@@ -52,7 +52,7 @@ self.__precacheManifest = [
     "url": "/tetris-app/static/media/yellow.9f5092ff.JPG"
   },
   {
-    "revision": "0cd0ac2de06ec5e7e481f4db5f60b885",
+    "revision": "42e96aa8380647c508f8afd7a3160519",
     "url": "/tetris-app/index.html"
   }
 ];
