@@ -1,9 +1,14 @@
 # Tetris App
 
-Tetris recreated using React. 
+
 
 https://michaelrae0.github.io/tetris-app/
 
-w, a, s, d - move
+<p>
+  <img src="https://github.com/michaelrae0/tetris-app/blob/master/src/images/tetris.PNG" width="600">
+</p>
 
+Tetris made using React. 
+
+w, a, s, d - move
 r - restart

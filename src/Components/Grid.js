@@ -19,7 +19,7 @@ class Grid extends React.Component {
             width: dims.dR -2+ 'px',
             height: dims.dR -2+ 'px'
           }}
-          >,</div>)
+          ></div>)
       }
     }
     
