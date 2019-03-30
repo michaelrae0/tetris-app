@@ -11,4 +11,5 @@ https://michaelrae0.github.io/tetris-app/
 Tetris made using React. 
 
 w, a, s, d - move
+
 r - restart
